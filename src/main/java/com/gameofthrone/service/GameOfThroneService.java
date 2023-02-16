@@ -10,5 +10,7 @@ public interface GameOfThroneService {
 	public Character[] findAllCharacters();
 	
 	public List<Character> findByTitle(String title);
+	
+	public Character[] findCharactersByNewest();
 
 }
