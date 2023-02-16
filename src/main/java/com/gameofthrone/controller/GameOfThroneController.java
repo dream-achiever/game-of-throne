@@ -1,8 +1,12 @@
 package com.gameofthrone.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gameofthrone.model.Character;
@@ -15,10 +19,16 @@ public class GameOfThroneController {
 	@Autowired
 	GameOfThroneService gameOfThroneService;
 	
-	@GetMapping("/getGOTCharacters")
-	public Character[] getGOTCharacters() {
+	@GetMapping("/getCharacters")
+	public Character[] getCharacters() {
 		
 		return gameOfThroneService.findAllCharacters();
+	}
+	
+	@PostMapping("/title")
+	public List<Character> getCharactersByTitle(@RequestParam("title") String title) {
+		
+		return gameOfThroneService.findByTitle(title);
 	}
 
 }
