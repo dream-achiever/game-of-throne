@@ -1,6 +1,10 @@
 package com.gameofthrone.service.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +49,25 @@ public class GameOfThroneServiceImpl implements GameOfThroneService{
 		return matchedCharacters;
 	}
 
+	@Override
+	public Character[] findCharactersByNewest() {
+		
+		Character[] characters = gameOfThroneUtils.getCharacters();
+		
+		sortCharactersById(characters);
+		
+		return characters;
+	}
+
+	private void sortCharactersById(Character[] characterList) {
+		
+		Arrays.sort(characterList,new Comparator<Character>() {
+			public int compare(Character a,Character b) {
+				
+				return b.getId().intValue() - a.getId().intValue();
+			} 
+		});
+	}
+
+	
 }

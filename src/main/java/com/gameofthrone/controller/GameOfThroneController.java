@@ -30,5 +30,11 @@ public class GameOfThroneController {
 		
 		return gameOfThroneService.findByTitle(title);
 	}
+	
+	@GetMapping("/newest")
+	public Character[] getNewestCharacters() {
+		
+		return gameOfThroneService.findCharactersByNewest();
+	}
 
 }
