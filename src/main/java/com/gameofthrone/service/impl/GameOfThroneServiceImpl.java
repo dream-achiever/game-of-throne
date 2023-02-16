@@ -11,7 +11,7 @@ import com.gameofthrone.service.GameOfThroneService;
 @Service
 public class GameOfThroneServiceImpl implements GameOfThroneService{
 	
-	@Value("${got.characters}")
+	@Value("${got.characters.url}")
 	private String gotCharactersApiUrl;
 	
 	public Character[] findAllCharacters(){
