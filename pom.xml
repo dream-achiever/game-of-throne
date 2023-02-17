@@ -8,11 +8,11 @@
 		<version>3.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.external-api</groupId>
-	<artifactId>external-api</artifactId>
+	<groupId>com.gameofthrone</groupId>
+	<artifactId>game-of-throne</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>external-api</name>
-	<description>Consuming External API</description>
+	<description>Game of Thrones API</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
