@@ -36,5 +36,11 @@ public class GameOfThroneController {
 		
 		return gameOfThroneService.findCharactersByNewest();
 	}
+	
+	@PostMapping("/orderByName")
+	public Character[] getOrderByNameCharacters(@RequestParam("orderBy") String orderBy) {
+		
+		return gameOfThroneService.findCharactersByOrderedName(orderBy);
+	}
 
 }

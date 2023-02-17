@@ -69,5 +69,31 @@ public class GameOfThroneServiceImpl implements GameOfThroneService{
 		});
 	}
 
+	@Override
+	public Character[] findCharactersByOrderedName(String orderBy) {
+		
+		Character[] characters = gameOfThroneUtils.getCharacters();
+		
+		sortCharactersByName(characters,orderBy);
+		
+		return characters;
+	}
+	
+	private void sortCharactersByName(Character[] characters,String orderBy) {
+		
+		Arrays.sort(characters,new Comparator<Character>() {
+			
+			public int compare(Character a, Character b) {
+				if(orderBy.equalsIgnoreCase("asc")) {
+					return a.getFullName().compareToIgnoreCase(b.getFullName());
+				}
+				else {
+					return b.getFullName().compareToIgnoreCase(a.getFullName());
+				}
+			}
+			
+		});
+		
+	}
 	
 }
